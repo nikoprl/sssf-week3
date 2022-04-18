@@ -1,6 +1,15 @@
 import Species from '../models/species.js';
 
 export default {
+    Query: {
+        async species(parent, args) {
+            console.log('species', args);
+            return await Species.find();
+        },
+        async specie(parent, args) {
+            return await Species.find(args.id);
+        }
+    },
     Animal: {
         async species(parent, args) {
             console.log('species', parent);
